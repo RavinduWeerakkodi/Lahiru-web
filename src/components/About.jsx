@@ -4,9 +4,9 @@ import { Award, Users, Wrench, TrendingUp } from 'lucide-react';
 
 const About = () => {
   const stats = [
-    { icon: Award, label: 'Years of Excellence', value: '25+' },
-    { icon: Users, label: 'Happy Clients', value: '500+' },
-    { icon: Wrench, label: 'Machines Delivered', value: '1000+' },
+    { icon: Award, label: 'Years of Excellence', value: '15+' },
+    { icon: Users, label: 'Happy Clients', value: '300+' },
+    { icon: Wrench, label: 'Machines Delivered', value: '500+' },
     { icon: TrendingUp, label: 'Customer Satisfaction', value: '98%' }
   ];
 
