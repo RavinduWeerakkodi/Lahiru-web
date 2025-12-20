@@ -90,7 +90,7 @@ const Testimonials = () => {
           className="mt-16 text-center bg-gradient-to-br from-[#8B0000] to-[#660000] rounded-2xl p-12"
         >
           <p className="text-white text-2xl font-semibold mb-4">
-            Join 500+ Satisfied Customers
+            Join 300+ Satisfied Customers
           </p>
           <p className="text-white/90 text-lg">
             Experience the Lahiru Enterprises difference today
