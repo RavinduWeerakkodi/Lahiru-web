@@ -12,17 +12,17 @@ const WhyChooseUs = () => {
     {
       icon: Wrench,
       title: 'Expert Engineering',
-      description: 'Over 25 years of experience in designing and manufacturing food processing equipment with precision and innovation.'
+      description: 'Over 15 years of experience in designing and manufacturing food processing equipment with precision and innovation.'
     },
     {
       icon: Award,
       title: 'Proven Reliability',
-      description: 'Trusted by 500+ businesses across Sri Lanka with a 98% customer satisfaction rate and minimal downtime.'
+      description: 'Trusted by 300+ businesses across Sri Lanka with a 98% customer satisfaction rate and minimal downtime.'
     },
     {
       icon: Clock,
       title: 'Fast Delivery',
-      description: 'Quick turnaround times with efficient manufacturing processes. Most orders delivered within 2-4 weeks.'
+      description: 'Quick turnaround times with efficient manufacturing processes. Most orders delivered within 3-6 weeks.'
     },
     {
       icon: HeadphonesIcon,
