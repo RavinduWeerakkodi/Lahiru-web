@@ -117,5 +117,93 @@ const Contact = () => {
           ))}
         </div>
 
+ <div className="grid lg:grid-cols-1 gap-12"> {/* Changed to 1 column layout */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="bg-white rounded-2xl shadow-lg p-8">
+              <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-6">
+                Send Us a Message
+              </h3>
+
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#8B0000] focus:ring-2 focus:ring-[#8B0000]/20 outline-none transition-all"
+                    placeholder="Enter your name"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#8B0000] focus:ring-2 focus:ring-[#8B0000]/20 outline-none transition-all"
+                    placeholder="your@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#8B0000] focus:ring-2 focus:ring-[#8B0000]/20 outline-none transition-all"
+                    placeholder="07X XXX XXXX"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Your Message *
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows="5"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-[#8B0000] focus:ring-2 focus:ring-[#8B0000]/20 outline-none transition-all resize-none"
+                    placeholder="Tell us about your requirements..."
+                  ></textarea>
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-[#8B0000] hover:bg-[#660000] text-white py-6 text-lg"
+                >
+                  <Send className="mr-2 h-5 w-5" />
+                  Send Message
+                </Button>
+              </form>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+};
        
 export default Contact;
