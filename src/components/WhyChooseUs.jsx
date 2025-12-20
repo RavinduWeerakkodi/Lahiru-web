@@ -22,7 +22,7 @@ const WhyChooseUs = () => {
     {
       icon: Clock,
       title: 'Fast Delivery',
-      description: 'Quick turnaround times with efficient manufacturing processes. Most orders delivered within 3-6 weeks.'
+      description: 'Quick turnaround times with efficient manufacturing processes. Most orders delivered within 2-4 weeks.'
     },
     {
       icon: HeadphonesIcon,
