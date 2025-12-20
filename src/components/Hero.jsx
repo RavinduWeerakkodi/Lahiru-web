@@ -129,7 +129,7 @@ const Hero = () => {
             repeat: Infinity,
             duration: 2
           }} className="absolute -bottom-6 -right-6 bg-white rounded-2xl shadow-xl p-6 hidden md:block">
-              <p className="text-4xl font-bold text-[#8B0000]">20+</p>
+              <p className="text-4xl font-bold text-[#8B0000]">15+</p>
               <p className="text-gray-600 font-medium">Years Experience</p>
             </motion.div>
           </motion.div>
