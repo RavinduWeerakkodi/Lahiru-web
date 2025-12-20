@@ -49,7 +49,7 @@ const Contact = () => {
       title: 'Our Location',
       details: ['No: 465, Biyagama Road', 'Pethiyagoda, Sri Lanka'],
       action: 'Get directions',
-      href: 'https://www.google.com/maps/search/No:+465,+Biyagama+Road,+Pethiyagoda,+Sri+Lanka'
+      href: 'https://www.google.com/maps/place/Lahiru+Enterprises/@6.9553201,79.8988223,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae25993b78743a1:0x718b894ac776d8ec!8m2!3d6.9553201!4d79.9013972!16s%2Fg%2F11fm9sxy3x?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
     },
     {
       icon: Facebook,
