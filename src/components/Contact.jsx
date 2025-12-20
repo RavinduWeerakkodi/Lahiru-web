@@ -12,14 +12,38 @@ const Contact = () => {
     phone: '',
     message: ''
   });
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for contacting us. We'll get back to you within 24 hours.",
-    });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setLoading(true);
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data?.error || 'Failed to send message');
+
+      toast({
+        title: 'Message Sent!',
+        description: "Thank you for contacting us. We'll get back to you within 24 hours.",
+      });
+
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch (err) {
+      console.error('Contact form error:', err);
+      toast({
+        title: 'Error sending message',
+        description: err.message || 'Please try again later.',
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleChange = (e) => {
@@ -49,7 +73,7 @@ const Contact = () => {
       title: 'Our Location',
       details: ['No: 465, Biyagama Road', 'Pethiyagoda, Sri Lanka'],
       action: 'Get directions',
-      href: 'https://www.google.com/maps/place/Lahiru+Enterprises/@6.9553201,79.8988223,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae25993b78743a1:0x718b894ac776d8ec!8m2!3d6.9553201!4d79.9013972!16s%2Fg%2F11fm9sxy3x?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D'
+      href: 'https://www.google.com/maps/place/Lahiru+Enterprises/@6.9553201,79.8988223,17z/data=!3m1!4b1!4m6!3m5!1s0x3ae25993b78743a1:0x718b894ac776d8ec!8m2!3d6.9553201!4d79.9013972!16s%2Fg%2F11fm9sx[...]'
     },
     {
       icon: Facebook,
@@ -117,7 +141,7 @@ const Contact = () => {
           ))}
         </div>
 
- <div className="grid lg:grid-cols-1 gap-12"> {/* Changed to 1 column layout */}
+        <div className="grid lg:grid-cols-1 gap-12">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -192,10 +216,11 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  className="w-full bg-[#8B0000] hover:bg-[#660000] text-white py-6 text-lg"
+                  className={`w-full bg-[#8B0000] hover:bg-[#660000] text-white py-6 text-lg ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
+                  disabled={loading}
                 >
                   <Send className="mr-2 h-5 w-5" />
-                  Send Message
+                  {loading ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </div>
