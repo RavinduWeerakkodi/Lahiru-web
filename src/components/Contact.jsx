@@ -19,15 +19,18 @@ const Contact = () => {
     setLoading(true);
 
     try {
-      const res = await fetch('/api/contact', {
+      const response = await fetch('https://formspree.io/f/xzzdogew', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message
+        })
       });
 
-      const data = await res.json();
-
-      if (!res.ok) throw new Error(data?.error || 'Failed to send message');
+      if (!response.ok) throw new Error('Failed to send message');
 
       toast({
         title: 'Message Sent!',
@@ -39,7 +42,7 @@ const Contact = () => {
       console.error('Contact form error:', err);
       toast({
         title: 'Error sending message',
-        description: err.message || 'Please try again later.',
+        description: 'Please try calling us directly at 077 222 7556 or emailing lahiruenterprice@gmail.com',
       });
     } finally {
       setLoading(false);
