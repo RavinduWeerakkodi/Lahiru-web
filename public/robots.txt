@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Allow: /assets/
+Disallow: /node_modules/
+Disallow: /.git/
+
+Sitemap: https://lahiruenterprises.netlify.app/sitemap.xml
