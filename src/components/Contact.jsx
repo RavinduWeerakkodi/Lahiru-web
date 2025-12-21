@@ -35,6 +35,20 @@ const Contact = () => {
         throw new Error('EmailJS configuration is missing');
       }
 
+      // Get current date and time
+      const now = new Date();
+      const formattedDate = now.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      const formattedTime = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+
       await emailjs.send(
         serviceId,
         templateId,
@@ -44,7 +58,9 @@ const Contact = () => {
           from_name: formData.name,
           from_email: formData.email,
           phone_number: formData.phone,
-          message: formData.message
+          message: formData.message,
+          submission_date: formattedDate,
+          submission_time: formattedTime
         }
       );
 
