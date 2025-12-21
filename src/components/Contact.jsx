@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Send, Facebook } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -14,23 +15,38 @@ const Contact = () => {
   });
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
+  }, []);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const response = await fetch('https://formspree.io/f/mnjavzqk', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message
-        })
-      });
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
 
-      if (!response.ok) throw new Error('Failed to send message');
+      if (!serviceId || !templateId) {
+        throw new Error('EmailJS configuration is missing');
+      }
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          to_email: 'lahiruenterprice@gmail.com',
+          cc_email: 'ravinduweerakkodi.rw@gmail.com',
+          from_name: formData.name,
+          from_email: formData.email,
+          phone_number: formData.phone,
+          message: formData.message
+        }
+      );
 
       toast({
         title: 'Message Sent!',
