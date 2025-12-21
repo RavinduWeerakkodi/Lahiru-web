@@ -51,4 +51,4 @@ publicDir = "dist"
 [userenv.shared]
 VITE_EMAILJS_PUBLIC_KEY = "KAl2ycXWMoKkjJ-YT"
 VITE_EMAILJS_SERVICE_ID = "service_3xg4js5"
-VITE_EMAILJS_TEMPLATE_ID = "template_qr0hpy8"
+VITE_EMAILJS_TEMPLATE_ID = "template_tz7aufv"
