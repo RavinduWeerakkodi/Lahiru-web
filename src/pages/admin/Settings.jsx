@@ -3,10 +3,12 @@ import React, { useEffect, useState } from 'react';
 import { db } from "@/lib/firebase";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import { FaSave, FaGlobe, FaWhatsapp, FaEnvelope, FaPhone, FaTools, FaMapMarkerAlt, FaFacebook, FaInstagram, FaLinkedin, FaMapMarkedAlt } from 'react-icons/fa';
+import { useToast } from "@/components/ui/use-toast";
 
 export default function Settings() {
     const [loading, setLoading] = useState(true);
     const [saving, setSaving] = useState(false);
+    const { toast } = useToast();
     const [settings, setSettings] = useState({
         contactEmail: "info@lahiruenterprises.com",
         contactPhone1: "077 222 7556",
@@ -74,10 +76,17 @@ export default function Settings() {
         setSaving(true);
         try {
             await setDoc(doc(db, "settings", "general"), settings);
-            alert("Settings saved successfully!");
+            toast({
+                title: "Changes Saved",
+                description: "Global settings have been updated successfully.",
+            });
         } catch (error) {
             console.error("Error saving settings:", error);
-            alert(`Failed to save settings: ${error.message}`);
+            toast({
+                title: "Error",
+                description: `Failed to save settings: ${error.message}`,
+                variant: "destructive"
+            });
         } finally {
             setSaving(false);
         }

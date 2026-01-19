@@ -8,6 +8,7 @@ import WhatsAppClicks from '@/pages/admin/WhatsAppClicks';
 import Reviews from '@/pages/admin/Reviews';
 import Users from '@/pages/admin/Users';
 import Settings from '@/pages/admin/Settings';
+import Profile from '@/pages/admin/Profile';
 import AdminLayout from '@/components/admin/layout/AdminLayout';
 import { SettingsProvider } from '@/context/SettingsContext';
 import { trackVisitor } from '@/lib/tracking';
@@ -33,6 +34,7 @@ function App() {
             <Route path="reviews" element={<Reviews />} />
             <Route path="users" element={<Users />} />
             <Route path="settings" element={<Settings />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="*" element={<Navigate to="/admin" replace />} />
           </Route>
 

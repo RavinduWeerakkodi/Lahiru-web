@@ -48,6 +48,8 @@ export default function AuthGuard({ children }) {
     }, [user, navigate]);
 
     useEffect(() => {
+        let userUnsubscribe = null;
+
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 // 1. Check for hardcoded superadmin bypass
@@ -58,35 +60,50 @@ export default function AuthGuard({ children }) {
                     return;
                 }
 
-                // 2. Check Firestore for existence via Email 
+                // 2. Real-time Check Firestore for existence
                 try {
+                    // We need to find the user doc by email first since we might not have doc ID = uid in legacy data
+                    // However, we are making a constraint that email is unique.
                     const userQ = query(collection(db, "users"), where("email", "==", currentUser.email), limit(1));
-                    const userSnap = await getDocs(userQ);
 
-                    if (userSnap.empty) {
-                        await auth.signOut();
-                        setUser(null);
-                        navigate("/admin/login");
-                    } else {
-                        if (location.pathname === "/admin/login") navigate("/admin");
-                        setUser(currentUser);
-                    }
+                    // Initial check and setup real-time listener
+                    // Note: onSnapshot with query works for this.
+                    userUnsubscribe = onSnapshot(userQ, async (snapshot) => {
+                        if (snapshot.empty) {
+                            console.log("User document not found or deleted. Signing out.");
+                            await auth.signOut();
+                            setUser(null);
+                            if (userUnsubscribe) userUnsubscribe(); // Stop listening
+                            navigate("/admin/login");
+                        } else {
+                            // User exists
+                            if (location.pathname === "/admin/login") navigate("/admin");
+                            setUser(currentUser);
+                        }
+                        setLoading(false);
+                    }, (error) => {
+                        console.error("Auth listener error:", error);
+                        setLoading(false);
+                    });
+
                 } catch (error) {
-                    console.error("Auth check failed:", error);
-                    // Just let them in if they are authenticated in Firebase if DB fails? 
-                    // Safer to deny or maybe just set user.
-                    setUser(currentUser);
+                    console.error("Auth check setup failed:", error);
+                    setLoading(false);
                 }
             } else {
+                if (userUnsubscribe) userUnsubscribe();
                 if (location.pathname !== "/admin/login") {
                     navigate("/admin/login");
                 }
                 setUser(null);
+                setLoading(false);
             }
-            setLoading(false);
         });
 
-        return () => unsubscribe();
+        return () => {
+            unsubscribe();
+            if (userUnsubscribe) userUnsubscribe();
+        };
     }, [navigate, location.pathname]);
 
     if (loading) {
