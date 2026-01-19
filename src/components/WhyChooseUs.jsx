@@ -5,29 +5,29 @@ import { Shield, Wrench, Award, Clock, Headphones as HeadphonesIcon } from 'luci
 const WhyChooseUs = () => {
   const reasons = [
     {
-      icon: Shield,
-      title: 'Premium Quality',
-      description: 'All our machines are built with high-grade stainless steel and premium components ensuring long-lasting performance and hygiene compliance.'
+      icon: Award,
+      title: 'Proven Expertise',
+      description: 'Over 15 years of specialized experience in the local engineering sector, delivering high-performance machinery.'
     },
     {
       icon: Wrench,
-      title: 'Expert Engineering',
-      description: 'Over 15 years of experience in designing and manufacturing food processing equipment with precision and innovation.'
+      title: 'Custom Engineering',
+      description: 'Tailor-made solutions to fit your specific factory layout and production capacity requirements.'
     },
     {
-      icon: Award,
-      title: 'Proven Reliability',
-      description: 'Trusted by 300+ businesses across Sri Lanka with a 98% customer satisfaction rate and minimal downtime.'
-    },
-    {
-      icon: Clock,
-      title: 'Fast Delivery',
-      description: 'Quick turnaround times with efficient manufacturing processes. Most orders delivered within 2-4 weeks.'
+      icon: Shield,
+      title: 'Superior Quality',
+      description: 'Heavy-duty construction using high-grade materials for long-term reliability and food safety compliance.'
     },
     {
       icon: HeadphonesIcon,
-      title: 'Complete Support',
-      description: 'Comprehensive after-sales service including installation, training, maintenance, and spare parts availability.'
+      title: 'After-Sales Assurance',
+      description: 'Reliable maintenance, spare parts availability, and dedicated technical support for all our machines.'
+    },
+    {
+      icon: Clock,
+      title: 'Local Manufacturing',
+      description: 'Proudly made in Sri Lanka, ensuring quick service, easy communication, and deep understanding of local needs.'
     }
   ];
 
@@ -63,11 +63,11 @@ const WhyChooseUs = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-[#8B0000] to-[#660000] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <reason.icon className="w-8 h-8 text-white" />
               </div>
-              
+
               <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-4">
                 {reason.title}
               </h3>
-              
+
               <p className="text-gray-600 leading-relaxed">
                 {reason.description}
               </p>
@@ -88,11 +88,11 @@ const WhyChooseUs = () => {
               <div className="w-16 h-16 bg-gradient-to-br from-[#8B0000] to-[#660000] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                 <reason.icon className="w-8 h-8 text-white" />
               </div>
-              
+
               <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-4">
                 {reason.title}
               </h3>
-              
+
               <p className="text-gray-600 leading-relaxed">
                 {reason.description}
               </p>

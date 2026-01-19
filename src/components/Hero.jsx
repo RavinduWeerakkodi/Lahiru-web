@@ -47,7 +47,7 @@ const Hero = () => {
           }} transition={{
             delay: 0.2
           }} className="font-poppins font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-            Lahiru Enterprises
+            Premium Murukku Making Machines in Sri Lanka
           </motion.h1>
 
           <motion.p initial={{
@@ -59,7 +59,7 @@ const Hero = () => {
           }} transition={{
             delay: 0.4
           }} className="text-xl md:text-2xl mb-4 text-white/90">
-            Your Specialist in Murukku Industry Machineries
+            Advanced food processing machinery engineered for efficiency, durability, and superior snack production.
           </motion.p>
 
           <motion.p initial={{
@@ -71,7 +71,7 @@ const Hero = () => {
           }} transition={{
             delay: 0.6
           }} className="text-lg mb-8 text-white/80">
-            High-quality, durable machinery for the food processing industry. Trusted by businesses across Sri Lanka.
+            Trusted by over 500+ food manufacturers across Sri Lanka for 15 years.
           </motion.p>
 
           <motion.div initial={{

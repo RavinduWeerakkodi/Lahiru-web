@@ -1,25 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Home, Factory, Store, Globe } from 'lucide-react';
 
 const Industries = () => {
   const industries = [
     {
-      title: 'Murukku Production',
-      description: 'Complete solutions for traditional and modern murukku manufacturing facilities',
-      icon: <img src="/murukku-icon.png" alt="Murukku" className="w-32 h-32 object-cover mx-auto rounded-lg shadow-lg" />,
+      title: 'Small Scale Home Industries',
+      description: 'Empowering home-based entrepreneurs with compact, efficient, and easy-to-operate machinery.',
+      icon: Home,
       color: 'from-orange-500 to-red-600'
     },
     {
-      title: 'Dodol Manufacturing',
-      description: 'Specialized equipment for traditional Sri Lankan dodol production',
-      icon: <img src="/dodol-icon.png" alt="Dodol" className="w-32 h-32 object-cover mx-auto rounded-lg shadow-lg" />,
+      title: 'Large Commercial Factories',
+      description: 'High-capacity, automated production lines for established snack manufacturers.',
+      icon: Factory,
       color: 'from-purple-500 to-pink-600'
     },
     {
-      title: 'Musket Production',
-      description: 'Efficient machinery for large-scale musket manufacturing operations',
-      icon: <img src="/musket-icon.jpg" alt="Musket" className="w-32 h-32 object-cover mx-auto rounded-lg shadow-lg" />,
+      title: 'Hotels & Catering Services',
+      description: 'Reliable equipment designed for high-volume kitchen operations and catering needs.',
+      icon: Store,
       color: 'from-blue-500 to-cyan-600'
+    },
+    {
+      title: 'Export-Oriented Manufacturers',
+      description: 'International standard machinery supporting businesses targeting global markets.',
+      icon: Globe,
+      color: 'from-green-500 to-emerald-600'
     }
   ];
 
@@ -42,7 +49,7 @@ const Industries = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {industries.map((industry, index) => (
             <motion.div
               key={index}
@@ -52,22 +59,24 @@ const Industries = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl from-[#8B0000] to-[#660000]"></div>
+              <div className={`absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl ${industry.color}`}></div>
 
-              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300">
-                <div className="text-6xl mb-6">{industry.icon}</div>
+              <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 h-full">
+                <div className="mb-6 flex justify-center">
+                  <industry.icon className="w-16 h-16 text-white" />
+                </div>
 
-                <h3 className="font-poppins font-bold text-2xl mb-4">
+                <h3 className="font-poppins font-bold text-xl mb-4 text-center">
                   {industry.title}
                 </h3>
 
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed text-center">
                   {industry.description}
                 </p>
 
-                <div className="mt-6 pt-6 border-t border-white/20">
+                <div className="mt-6 pt-6 border-t border-white/20 text-center">
                   <p className="text-sm text-gray-400">
-                    Custom solutions available
+                    Tailored Solutions
                   </p>
                 </div>
               </div>
@@ -80,13 +89,11 @@ const Industries = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="mt-16 text-center"
+          className="mt-20 text-center bg-white/5 rounded-2xl p-8 md:p-12 border border-white/10 max-w-4xl mx-auto"
         >
-          <p className="text-xl text-gray-300 mb-4">
-            Need machinery for a different industry?
-          </p>
-          <p className="text-gray-400">
-            We offer custom manufacturing solutions. Contact us to discuss your requirements.
+          <h3 className="text-2xl font-bold mb-4 text-white">Serving All of Sri Lanka</h3>
+          <p className="text-gray-300 text-lg leading-relaxed">
+            Based in Pethiyagoda, we serve clients island-wide. Whether you are operating in <strong>Colombo, Kandy, Gampaha, Kurunegala, or Galle</strong>, our delivery and installation teams are equipped to reach you. As the leading provider of the <strong>Murukku machine in Sri Lanka</strong>, we are committed to driving the success of food manufacturers in every province, from the Northern peninsula to the Southern coast.
           </p>
         </motion.div>
       </div>

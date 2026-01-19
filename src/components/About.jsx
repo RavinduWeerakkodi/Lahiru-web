@@ -50,17 +50,13 @@ const About = () => {
             <h3 className="font-poppins font-bold text-3xl text-gray-900">
               Leading Manufacturer of Food Processing Equipment
             </h3>
-            
+
             <p className="text-gray-700 text-lg leading-relaxed">
-              Lahiru Enterprises has been at the forefront of manufacturing high-quality food processing machinery for over two decades. Specializing in murukku making machines and related equipment, we've built a reputation for reliability, innovation, and exceptional customer service.
+              Lahiru Enterprises stands as a pioneer in the Sri Lankan engineering landscape, specializing in high-performance food processing machinery. With over 15 years of dedicated experience, we have mastered the art of manufacturing robust <strong>Murukku making machines</strong> that cater to the evolving needs of the local food industry. Located in Pethiyagoda, our facility combines traditional engineering values with modern technology to produce equipment that stands the test of time. We believe in empowering local entrepreneurs by providing machinery that increases productivity while maintaining the authentic taste of traditional snacks. Our commitment goes beyond manufacturing; we build lasting partnerships with our clients, helping them scale their businesses from home-based operations to industrial powerhouses.
             </p>
 
             <p className="text-gray-700 text-lg leading-relaxed">
-              Our machines are designed with precision engineering, using premium stainless steel components to ensure durability and hygiene. From small-scale businesses to large industrial operations, we provide customized solutions that meet your specific production needs.
-            </p>
-
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Based in Pethiyagoda, Sri Lanka, we serve clients across the country, providing not just machinery but complete support including installation, training, and after-sales service.
+              We offer a diverse range of <strong>snack processing machines</strong> designed to meet various production requirements. Our flagship <strong>industrial Murukku machine</strong> series features semi-automatic and fully automatic models, capable of producing different shapes and sizes of Murukku, Mixture, and Sev. Beyond Murukku, our expertise extends to custom <strong>food processing machinery in Sri Lanka</strong>, including oil fryers, dough mixers, and packaging support equipment. Every machine is built with food-grade stainless steel to ensure hygiene, durability, and compliance with safety standards, making them the ideal choice for quality-conscious manufacturers.
             </p>
           </motion.div>
         </div>

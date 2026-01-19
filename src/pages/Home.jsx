@@ -17,17 +17,17 @@ function Home() {
     return (
         <>
             <Helmet>
-                <title>Lahiru Enterprises - Your Specialist in Murukku Industry Machineries</title>
-                <meta name="description" content="Lahiru Enterprises specializes in manufacturing high-quality murukku making machines, deep fryers, and food processing equipment in Sri Lanka. Contact us for industrial machinery solutions." />
-                <meta name="keywords" content="murukku machine, food processing equipment, deep fryer, machinery Sri Lanka, industrial equipment, snack making machine" />
+                <title>Murukku Machine Sri Lanka | Industrial Food Machinery Manufacturers</title>
+                <meta name="description" content="Leading manufacturer of Murukku making machines and food processing machinery in Sri Lanka. 15+ years of trust, custom solutions, and island-wide support." />
+                <meta name="keywords" content="murukku machine sri lanka, murukku making machine, food processing machinery sri lanka, snack processing machines, industrial murukku machine, automatic murukku machine, murukku machine price sri lanka, murukku cutter machine, electric murukku machine, mixture making machine, murukku bites machine, cassava bites machine, slicing machines" />
                 <meta name="author" content="Lahiru Enterprises" />
-                <meta property="og:title" content="Lahiru Enterprises - Murukku Industry Machineries" />
-                <meta property="og:description" content="High-quality murukku making machines and food processing equipment. Trusted by businesses across Sri Lanka." />
+                <meta property="og:title" content="Murukku Machine Sri Lanka | Industrial Food Machinery Manufacturers" />
+                <meta property="og:description" content="Leading manufacturer of Murukku making machines and food processing machinery in Sri Lanka. 15+ years of trust, custom solutions, and island-wide support." />
                 <meta property="og:type" content="business.business" />
                 <meta property="og:url" content="https://lahiruenterprises.netlify.app/" />
                 <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Lahiru Enterprises" />
-                <meta name="twitter:description" content="Your Specialist in Murukku Industry Machineries" />
+                <meta name="twitter:title" content="Murukku Machine Sri Lanka | Industrial Food Machinery Manufacturers" />
+                <meta name="twitter:description" content="Leading manufacturer of Murukku making machines and food processing machinery in Sri Lanka. 15+ years of trust, custom solutions, and island-wide support." />
                 <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
                 <script type="application/ld+json">
                     {JSON.stringify({
