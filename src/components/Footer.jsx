@@ -1,7 +1,12 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Facebook } from 'lucide-react'; // Import Facebook icon
+import { Phone, Mail, MapPin, Facebook } from 'lucide-react';
+import { useSettings } from '@/context/SettingsContext';
 
 const Footer = () => {
+  const { settings, loading } = useSettings();
+
+  if (loading) return null; // Or a simple skeleton
+
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
@@ -26,17 +31,17 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-[#8B0000] mt-1" />
                 <div>
-                  <p>077 222 7556</p>
-                  <p>075 222 7556</p>
+                  <p>{settings.contactPhone1}</p>
+                  {settings.contactPhone2 && <p>{settings.contactPhone2}</p>}
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-[#8B0000] mt-1" />
-                <p>lahiruenterprice@gmail.com</p>
+                <p>{settings.contactEmail}</p>
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-[#8B0000] mt-1" />
-                <p>No: 465, Biyagama Road<br />Pethiyagoda, Sri Lanka</p>
+                <p className="whitespace-pre-line">{settings.contactAddress}</p>
               </div>
             </div>
           </div>
@@ -53,15 +58,17 @@ const Footer = () => {
           <div>
             <h4 className="font-poppins font-bold text-lg mb-4">Social Media</h4>
             <div className="flex items-center gap-3">
-              <a
-                href="https://www.facebook.com/LahiruEnterprises"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white hover:text-[#8B0000] transition-colors"
-                aria-label="Visit us on Facebook"
-              >
-                <Facebook className="w-6 h-6" />
-              </a>
+              {settings.social.facebook && (
+                <a
+                  href={settings.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-[#8B0000] transition-colors"
+                  aria-label="Visit us on Facebook"
+                >
+                  <Facebook className="w-6 h-6" />
+                </a>
+              )}
             </div>
           </div>
         </div>

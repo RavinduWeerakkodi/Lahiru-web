@@ -6,19 +6,19 @@ const Industries = () => {
     {
       title: 'Murukku Production',
       description: 'Complete solutions for traditional and modern murukku manufacturing facilities',
-      icon: '🥨',
+      icon: <img src="/murukku-icon.png" alt="Murukku" className="w-32 h-32 object-cover mx-auto rounded-lg shadow-lg" />,
       color: 'from-orange-500 to-red-600'
     },
     {
       title: 'Dodol Manufacturing',
       description: 'Specialized equipment for traditional Sri Lankan dodol production',
-      icon: '🍬',
+      icon: <img src="/dodol-icon.png" alt="Dodol" className="w-32 h-32 object-cover mx-auto rounded-lg shadow-lg" />,
       color: 'from-purple-500 to-pink-600'
     },
     {
       title: 'Musket Production',
       description: 'Efficient machinery for large-scale musket manufacturing operations',
-      icon: '🍪',
+      icon: <img src="/musket-icon.jpg" alt="Musket" className="w-32 h-32 object-cover mx-auto rounded-lg shadow-lg" />,
       color: 'from-blue-500 to-cyan-600'
     }
   ];
@@ -53,14 +53,14 @@ const Industries = () => {
               className="relative group"
             >
               <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl blur-xl from-[#8B0000] to-[#660000]"></div>
-              
+
               <div className="relative bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300">
                 <div className="text-6xl mb-6">{industry.icon}</div>
-                
+
                 <h3 className="font-poppins font-bold text-2xl mb-4">
                   {industry.title}
                 </h3>
-                
+
                 <p className="text-gray-300 leading-relaxed">
                   {industry.description}
                 </p>

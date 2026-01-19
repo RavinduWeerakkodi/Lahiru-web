@@ -1,10 +1,15 @@
 import React from 'react';
+import { trackWhatsAppClick } from '@/lib/tracking';
 import { MessageCircle } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useSettings } from '@/context/SettingsContext';
 
 const WhatsAppButton = () => {
+  const { getWhatsAppLink } = useSettings();
+
   const handleWhatsApp = () => {
-    window.open('https://wa.me/94772227556', '_blank');
+    trackWhatsAppClick({ sourcePage: 'floating_button', serviceName: 'General Inquiry' });
+    window.open(getWhatsAppLink("Hello, I have a question about your services."), '_blank');
   };
 
   return (

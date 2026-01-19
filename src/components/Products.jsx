@@ -1,3 +1,4 @@
+import { trackWhatsAppClick } from '@/lib/tracking';
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
@@ -46,6 +47,8 @@ const Products = () => {
     const phoneNumber = '94772227556';
     const message = `Hello, I am interested in the ${productName}. Could you please provide pricing information?`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+
+    trackWhatsAppClick({ sourcePage: 'products_section', serviceName: productName });
     window.open(whatsappUrl, '_blank');
   };
 
@@ -92,7 +95,7 @@ const Products = () => {
                 <h3 className="font-poppins font-bold text-2xl text-gray-900 mb-3">
                   {product.name}
                 </h3>
-                
+
                 <p className="text-gray-600 mb-4 leading-relaxed">
                   {product.description}
                 </p>

@@ -17,6 +17,18 @@ module.exports = {
 		},
 		extend: {
 			colors: {
+				brand: {
+					bg: "#0E0F16",
+					surface: "#181A25",
+					gold: "#D4AF37",
+					"gold-light": "#E6C65C",
+					"gold-dim": "rgba(212, 175, 55, 0.15)",
+					primary: "#D4AF37",
+					text: "#F3F2ED",
+					body: "#B8BCC8",
+					muted: "#8A8FA3",
+					border: "rgba(255, 255, 255, 0.08)",
+				},
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
