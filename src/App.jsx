@@ -26,21 +26,15 @@ function App() {
           <Route path="/admin/login" element={<Login />} />
 
           {/* Admin Routes wrapped in AdminLayout */}
-          <Route
-            path="/admin/*"
-            element={
-              <AdminLayout>
-                <Routes>
-                  <Route index element={<Dashboard />} />
-                  <Route path="inquiries" element={<WhatsAppClicks />} />
-                  <Route path="reviews" element={<Reviews />} />
-                  <Route path="users" element={<Users />} />
-                  <Route path="settings" element={<Settings />} />
-                  <Route path="*" element={<Navigate to="/admin" replace />} />
-                </Routes>
-              </AdminLayout>
-            }
-          />
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="inquiries" element={<WhatsAppClicks />} />
+            <Route path="reviews" element={<Reviews />} />
+            <Route path="users" element={<Users />} />
+            <Route path="settings" element={<Settings />} />
+            <Route path="*" element={<Navigate to="/admin" replace />} />
+          </Route>
 
           {/* Redirect unknown routes to home */}
           <Route path="*" element={<Navigate to="/" replace />} />
