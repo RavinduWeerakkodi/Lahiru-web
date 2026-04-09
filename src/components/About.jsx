@@ -34,7 +34,7 @@ const About = () => {
             transition={{ duration: 0.6 }}
           >
             <img
-              src="https://horizons-cdn.hostinger.com/f3112c64-bb19-405f-807f-d9840f1c2c2c/f8573eccafdea3c8308fe9b2dc26434c.jpg"
+              src="/about-machine"
               alt="Lahiru Enterprises manufacturing facility"
               className="rounded-2xl shadow-xl w-full"
             />

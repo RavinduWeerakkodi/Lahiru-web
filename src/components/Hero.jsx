@@ -124,7 +124,7 @@ const Hero = () => {
           delay: 0.3
         }} className="relative">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-            <img src="https://horizons-cdn.hostinger.com/f3112c64-bb19-405f-807f-d9840f1c2c2c/machine-oRecj.jpeg" alt="Lahiru Enterprises Murukku Making Machine" className="w-full h-auto" />
+            <img src="/hero-machine.jpeg" alt="Lahiru Enterprises Murukku Making Machine" className="w-full h-auto" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
           </div>
 
