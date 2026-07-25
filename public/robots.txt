@@ -4,4 +4,4 @@ Allow: /assets/
 Disallow: /node_modules/
 Disallow: /.git/
 
-Sitemap: https://lahiruenterprises.netlify.app/sitemap.xml
+Sitemap: https://lahiruenterprises.com/sitemap.xml

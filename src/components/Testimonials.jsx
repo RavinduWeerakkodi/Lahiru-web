@@ -39,8 +39,8 @@ const Testimonials = () => {
         id: doc.id,
         ...doc.data()
       }));
-      // Filter out hidden ones if we implemented a toggle in admin (we did 'visible' in admin)
-      const visibleReviews = data.filter(r => r.visible !== false);
+      // Filter out hidden ones if toggled in admin panel
+      const visibleReviews = data.filter(r => r.visible !== false && r.isVisible !== false);
       setReviews(visibleReviews);
       setLoading(false);
     });

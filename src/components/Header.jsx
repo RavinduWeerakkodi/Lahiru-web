@@ -45,9 +45,7 @@ const Header = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-3"
           >
-            <div className="w-12 h-12 bg-gradient-to-br from-[#8B0000] to-[#660000] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-xl">LE</span>
-            </div>
+            <img src="/logo.svg" alt="Lahiru Enterprises" className="h-12 w-auto object-contain rounded-lg" />
             <div>
               <h2 className="font-poppins font-bold text-[#8B0000] text-lg leading-tight">
                 Lahiru Enterprises

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "@/lib/firebase";
 import { useNavigate, useLocation } from "react-router-dom";
-import { collection, query, where, limit, getDocs } from "firebase/firestore";
+import { collection, query, where, limit, getDocs, onSnapshot } from "firebase/firestore";
 
 export default function AuthGuard({ children }) {
     const [loading, setLoading] = useState(true);
@@ -53,7 +53,8 @@ export default function AuthGuard({ children }) {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
                 // 1. Check for hardcoded superadmin bypass
-                if (currentUser.email === "ravindu@lahiruenterprises.com") {
+                const userEmail = currentUser.email ? currentUser.email.toLowerCase() : "";
+                if (userEmail === "ravinduweerakkodi.rw@gmail.com" || userEmail === "ravindu@lahiruenterprises.com") {
                     if (location.pathname === "/admin/login") navigate("/admin");
                     setUser(currentUser);
                     setLoading(false);

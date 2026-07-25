@@ -13,9 +13,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8"> {/* Adjusted grid layout for 4 columns */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#8B0000] to-[#660000] rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">LE</span>
-              </div>
+              <img src="/logo.svg" alt="Lahiru Enterprises" className="h-12 w-auto object-contain rounded-lg" />
               <div>
                 <h3 className="font-poppins font-bold text-xl">Lahiru Enterprises</h3>
               </div>

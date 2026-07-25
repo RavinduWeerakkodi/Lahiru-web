@@ -1,7 +1,8 @@
 
 import { useState } from "react";
-import { signInWithEmailAndPassword, setPersistence, browserSessionPersistence } from "firebase/auth";
-import { auth } from "@/lib/firebase";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, setPersistence, browserSessionPersistence } from "firebase/auth";
+import { auth, db } from "@/lib/firebase";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -16,13 +17,47 @@ export default function Login() {
         setLoading(true);
         setError("");
 
+        const cleanEmail = email.trim();
+
         try {
             await setPersistence(auth, browserSessionPersistence);
-            await signInWithEmailAndPassword(auth, email, password);
+            await signInWithEmailAndPassword(auth, cleanEmail, password);
             navigate("/admin");
         } catch (err) {
-            console.error(err);
-            setError("Invalid email or password.");
+            console.error("Login error:", err);
+
+            // Auto-provision superadmin account if not created yet in Firebase Auth
+            const lowerEmail = cleanEmail.toLowerCase();
+            const isAllowedAutoProvision = lowerEmail === "ravinduweerakkodi.rw@gmail.com" || lowerEmail === "ravindu@lahiruenterprises.com";
+            const isUserNotFound = err.code === "auth/user-not-found" || err.code === "auth/invalid-credential";
+
+            if (isAllowedAutoProvision && isUserNotFound) {
+                try {
+                    const userCred = await createUserWithEmailAndPassword(auth, cleanEmail, password);
+                    await setDoc(doc(db, "users", userCred.user.uid), {
+                        displayName: "Ravindu",
+                        email: cleanEmail,
+                        role: "admin",
+                        createdAt: serverTimestamp()
+                    });
+                    navigate("/admin");
+                    return;
+                } catch (createErr) {
+                    console.error("Auto-provision error:", createErr);
+                }
+            }
+
+            if (err.code === "auth/wrong-password") {
+                setError("Incorrect password. Please check and try again.");
+            } else if (err.code === "auth/user-not-found") {
+                setError("No user found with this email address.");
+            } else if (err.code === "auth/invalid-credential") {
+                setError("Invalid login credentials. Please check your email and password.");
+            } else if (err.code === "auth/too-many-requests") {
+                setError("Access blocked due to multiple failed login attempts. Please try again later.");
+            } else {
+                setError(err.message || "Login failed. Please try again.");
+            }
         } finally {
             setLoading(false);
         }

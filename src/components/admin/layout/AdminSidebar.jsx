@@ -33,7 +33,8 @@ export default function AdminSidebar({ isOpen, setIsOpen }) {
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
             if (currentUser) {
-                if (currentUser.email === "ravindu@lahiruenterprises.com") {
+                const userEmail = currentUser.email ? currentUser.email.toLowerCase() : "";
+                if (userEmail === "ravinduweerakkodi.rw@gmail.com" || userEmail === "ravindu@lahiruenterprises.com") {
                     setUserRole("superadmin");
                     setLoading(false);
                     return;
@@ -101,8 +102,9 @@ export default function AdminSidebar({ isOpen, setIsOpen }) {
                 ${isOpen ? "translate-x-0" : "-translate-x-full"}
             `}>
                 <div className="flex items-center justify-between mb-8">
-                    <div className="text-2xl font-bold text-brand-text flex items-center tracking-wide">
-                        Lahiru Ent<span className="text-brand-gold drop-shadow-glow">.</span>
+                    <div className="text-2xl font-bold text-brand-text flex items-center gap-3 tracking-wide">
+                        <img src="/logo.svg" alt="Lahiru Enterprises" className="h-9 w-auto object-contain rounded" />
+                        <span>Lahiru Ent<span className="text-brand-gold drop-shadow-glow">.</span></span>
                     </div>
                     {/* Close button for mobile menu */}
                     <button
